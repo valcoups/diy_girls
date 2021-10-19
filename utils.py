@@ -6,12 +6,16 @@ import types
 import random
 from ast import literal_eval
 from collections import Iterable, Counter
+from IPython.display import Image, HTML
 
 def print_df_column_names(df):
 
     for i, column_name in enumerate(df.columns):
       print(f'{i+1:>3}. {column_name}')
-
+      
+def display_df(df):
+    return HTML(df.to_html(escape=False))
+    
 def check_df_col_str(df, colname, regex_str):
 
     return df[colname].str.contains(regex_str, case=False).fillna(False)
