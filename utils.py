@@ -7,7 +7,11 @@ import random
 from ast import literal_eval
 from collections import Iterable, Counter
 
-        
+def print_df_column_names(df):
+
+    for i, column_name in enumerate(df.columns):
+      print(f'{i+1:>3}. {column_name}')
+
 def check_df_col_str(df, colname, regex_str):
 
     return df[colname].str.contains(regex_str, case=False).fillna(False)
@@ -57,5 +61,6 @@ def get_list_of_features(*items, delims=None):
     lst = list(flatten(items))
 
     return lst
+
 
 
